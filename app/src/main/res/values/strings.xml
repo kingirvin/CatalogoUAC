@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">CatalogoUAC</string>
+    <string name="prefs_file">com.app.catalogouac.PREFERENCE_FILE_KEY</string>
+</resources>
