@@ -19,17 +19,44 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="11dp" />
+
         <TextView
             android:id="@+id/nombreProductoTextView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="Nombre" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="11dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción" />
 
         <TextView
             android:id="@+id/descripcionTextView"
             android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="11dp" />
+
+        <TextView
+            android:id="@+id/precioTextView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="11dp" />
 
         <TextView
             android:id="@+id/stockTextView"
@@ -37,17 +64,15 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="174dp"
-            android:layout_height="154dp"
-            app:srcCompat="@drawable/ic_launcher_background" />
-
-        <TextView
-            android:id="@+id/precioTextView"
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/productoImagenimageView"
+            android:layout_width="362dp"
+            android:layout_height="286dp"
+            app:srcCompat="@drawable/ic_launcher_background" />
 
     </LinearLayout>
 

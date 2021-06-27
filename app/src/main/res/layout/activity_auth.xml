@@ -45,44 +45,28 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/accederButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:text="Acceder" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/registrarButton"
-                android:layout_width="177dp"
+                android:id="@+id/catalogoButton"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorAccent"
-                android:text="Registrar" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/accederButton"
-                android:layout_width="199dp"
-                android:layout_height="match_parent"
-                android:text="Acceder" />
-
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:background="@android:color/white"
+                android:text="Ver Catalogo"
+                android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/catalogoButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@android:color/white"
-            android:text="Ver Catalogo"
-            android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.app.catalogouac
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -19,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_auth.*
 
 class AuthActivity : AppCompatActivity() {
     private val GOOGLE_SIGN_IN=100
+    private val imageUri:Uri?=null
     private lateinit var firebaseAnalytics: FirebaseAnalytics
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,29 +46,17 @@ class AuthActivity : AppCompatActivity() {
         val provider:String?=prefs.getString("provider",null)
         if (email!=null&& provider!=null){
             authLayout.visibility= View.INVISIBLE
-            showHome(email,ProviderType.valueOf(provider))
+            showHome()
         }
 
     }
     private fun setup(){
-        registrarButton.setOnClickListener {
-            if (emailEditText.text.isNotEmpty()&& passwordEditText.text.isNotEmpty()){
-                FirebaseAuth.getInstance()
-                    .createUserWithEmailAndPassword(emailEditText.text.toString(),passwordEditText.text.toString()).addOnCompleteListener {
-                        if (it.isSuccessful){
-                            showHome(it.result?.user?.email?:"",ProviderType.BASIC)
-                        }else{
-                            showAlert("Email ya registrado")
-                        }
-                    }
-            }
-        }
         accederButton.setOnClickListener {
             if (emailEditText.text.isNotEmpty()&& passwordEditText.text.isNotEmpty()){
                 FirebaseAuth.getInstance()
                     .signInWithEmailAndPassword(emailEditText.text.toString(),passwordEditText.text.toString()).addOnCompleteListener {
                         if (it.isSuccessful){
-                            showHome(it.result?.user?.email?:"",ProviderType.BASIC)
+                            showHome()
                         }else{
                             showAlert("su email o contraseña no son correctos")
                         }
@@ -79,28 +69,6 @@ class AuthActivity : AppCompatActivity() {
         }
 
     }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode==GOOGLE_SIGN_IN){
-            val task=GoogleSignIn.getSignedInAccountFromIntent(data)
-            try {
-                val accont=task.getResult(ApiException::class.java)
-                if (accont!=null){
-                    val credencial=GoogleAuthProvider.getCredential(accont.idToken,null)
-                    FirebaseAuth.getInstance().signInWithCredential(credencial).addOnCompleteListener {
-                        if (it.isSuccessful){
-                            showHome(accont.email?:"",ProviderType.GOOGLE)
-                        }else{
-                            showAlert("su email o contraseña no son correctos")
-                        }
-                    }
-                }
-            }catch (e:ApiException){
-                showAlert("Error al inciciar sesión")
-            }
-        }
-    }
     private fun showAlert(mensaje:String){
         val builder=AlertDialog.Builder(this)
         builder.setMessage(mensaje)
@@ -108,11 +76,8 @@ class AuthActivity : AppCompatActivity() {
         val dialog:AlertDialog=builder.create()
         dialog.show()
     }
-    private fun showHome(email:String, provider:ProviderType){
-        val homeIntent:Intent=Intent(this,HomeActivity::class.java).apply {
-            putExtra("email",email)
-            putExtra("provider",provider)
-        }
+    private fun showHome(){
+        val homeIntent:Intent=Intent(this,HomeActivity::class.java)
         startActivity(homeIntent)
     }
 

@@ -21,13 +21,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="11dp" />
+
+        <ImageView
+            android:id="@+id/imagenProductoImageView"
+            android:layout_width="309dp"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
         <EditText
             android:id="@+id/productoEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Nombre" />
+            android:hint="Nombre"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -39,6 +49,7 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:gravity="start|top"
+            android:hint="Descripción"
             android:inputType="textMultiLine" />
 
         <Space
@@ -50,8 +61,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Precio" />
+            android:hint="Precio"
+            android:inputType="textPersonName" />
 
         <Space
             android:layout_width="match_parent"
@@ -62,8 +73,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Stock" />
+            android:hint="Stock"
+            android:inputType="textPersonName" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -74,6 +85,7 @@
                 android:id="@+id/guardarButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@color/colorAccent"
                 android:text="Guardar" />
 
             <Button
