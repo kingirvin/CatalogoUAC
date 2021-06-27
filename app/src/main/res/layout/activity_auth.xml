@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_orange_dark"
     tools:context=".AuthActivity">
 
     <LinearLayout
@@ -49,6 +50,7 @@
             android:id="@+id/accederButton"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:backgroundTint="@color/colorAccent"
             android:text="Acceder" />
 
         <LinearLayout
@@ -62,10 +64,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@android:color/white"
+                android:backgroundTint="@android:color/holo_green_dark"
                 android:text="Ver Catalogo"
                 android:textColor="@color/colorPrimaryDark" />
 
         </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="380dp"
+            app:srcCompat="@drawable/logo" />
 
     </LinearLayout>
 

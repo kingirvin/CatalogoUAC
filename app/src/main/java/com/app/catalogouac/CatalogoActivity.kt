@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_catalogo.*
@@ -18,6 +19,7 @@ class CatalogoActivity : AppCompatActivity() {
         leerDatosProducto()
     }
     private fun leerDatosProducto(){
+        val procesBar=findViewById<ProgressBar>(R.id.progressBar2)
         title="Catalogo de Productos"
         val listaProductos:MutableList<Producto> = mutableListOf()
         val listaProductos2:MutableList<Producto> = mutableListOf()
